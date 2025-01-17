@@ -15,9 +15,9 @@
     "kata": {
       "type": "string"
     },
-    "bahasa": {
+    "bahasas": {
       "type": "relation",
-      "relation": "manyToOne",
+      "relation": "manyToMany",
       "target": "api::bahasa.bahasa",
       "inversedBy": "jawabans"
     },

@@ -15,12 +15,6 @@
     "nama": {
       "type": "string"
     },
-    "jawabans": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::jawaban.jawaban",
-      "mappedBy": "bahasa"
-    },
     "soals": {
       "type": "relation",
       "relation": "oneToMany",
@@ -38,6 +32,12 @@
       "relation": "oneToMany",
       "target": "api::level.level",
       "mappedBy": "bahasa"
+    },
+    "jawabans": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::jawaban.jawaban",
+      "mappedBy": "bahasas"
     }
   }
 }

@@ -26,6 +26,9 @@
       "relation": "manyToOne",
       "target": "api::bahasa.bahasa",
       "inversedBy": "levels"
+    },
+    "Topik": {
+      "type": "string"
     }
   }
 }

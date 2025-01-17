@@ -801,11 +801,6 @@ export interface ApiBahasaBahasa extends Schema.CollectionType {
   };
   attributes: {
     nama: Attribute.String;
-    jawabans: Attribute.Relation<
-      'api::bahasa.bahasa',
-      'oneToMany',
-      'api::jawaban.jawaban'
-    >;
     soals: Attribute.Relation<
       'api::bahasa.bahasa',
       'oneToMany',
@@ -820,6 +815,11 @@ export interface ApiBahasaBahasa extends Schema.CollectionType {
       'api::bahasa.bahasa',
       'oneToMany',
       'api::level.level'
+    >;
+    jawabans: Attribute.Relation<
+      'api::bahasa.bahasa',
+      'manyToMany',
+      'api::jawaban.jawaban'
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
@@ -852,9 +852,9 @@ export interface ApiJawabanJawaban extends Schema.CollectionType {
   };
   attributes: {
     kata: Attribute.String;
-    bahasa: Attribute.Relation<
+    bahasas: Attribute.Relation<
       'api::jawaban.jawaban',
-      'manyToOne',
+      'manyToMany',
       'api::bahasa.bahasa'
     >;
     soals: Attribute.Relation<
@@ -903,6 +903,7 @@ export interface ApiLevelLevel extends Schema.CollectionType {
       'manyToOne',
       'api::bahasa.bahasa'
     >;
+    Topik: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
