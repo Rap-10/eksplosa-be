@@ -2,22 +2,17 @@ services:
   - type: web
     name: eksplosa-be
     env: node
-    plan: starter
     buildCommand: yarn install && yarn build
-    startCommand: rsync -a public/ /data/public/ && yarn start
+    startCommand: yarn start
     healthCheckPath: /_health
     autoDeploy: false
-    disk:
-      name: strapi-data
-      mountPath: /data
-      sizeGB: 1
     envVars:
       - key: NODE_VERSION
         value: ~20.16.0
       - key: NODE_ENV
         value: production
       - key: DATABASE_FILENAME
-        value: /data/strapi.db
+        value: .tmp/strapi.db
       - key: JWT_SECRET
         generateValue: true
       - key: ADMIN_JWT_SECRET
